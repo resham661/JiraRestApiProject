@@ -12,8 +12,8 @@ public class addAttachmentToJira {
 	public static void main(String[] args) throws UnirestException {
 		// This code sample uses the  'Unirest' library:
 		 // http://unirest.io/java.html
-		 HttpResponse<JsonNode> response = Unirest.post("https://resham1.atlassian.net/rest/api/2/issue/FP-26/attachments")
-		         .basicAuth("reshamguru123@gmail.com", "kVDRMlQotpT6Wm8mu3FP9C46")
+		 HttpResponse<JsonNode> response = Unirest.post("https://resham1.atlassian.net/rest/api/2/issue/FP-27/attachments")
+		         .basicAuth("reshamguru123@gmail.com", "Pz9pg514GGq8vdKfcX5q0551")
 		         .header("Accept", "application/json")
 		         .header("X-Atlassian-Token", "no-check")
 		         .field("file", new File("newFile.txt"))
@@ -21,5 +21,4 @@ public class addAttachmentToJira {
 
 		         System.out.println(response.getBody());
 	}
-
 }

@@ -3,6 +3,8 @@ package JiraRestApi_unirest;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -13,8 +15,8 @@ public class CreateIssue {
 	public static void main(String[] args) throws UnirestException, JacksonException {
 
 		// The dataTable definition using the Jackson library		
-		ObjectMapper mapper = new ObjectMapper();
-		com.fasterxml.jackson.databind.node.ObjectNode dataTable = mapper.createObjectNode();
+		JsonNodeFactory factory = JsonNodeFactory.instance;
+		ObjectNode dataTable = new ObjectNode(factory);
 		{
 			com.fasterxml.jackson.databind.node.ObjectNode fields = dataTable.putObject("fields");
 			{
@@ -89,16 +91,16 @@ public class CreateIssue {
 					.asJson();
 
 
-		System.out.println("Created the ticket successfully...");
-
 		int responseCode = response.getStatus();
-		System.out.println(responseCode);		
 		
-		System.out.println(response.getBody());
+		if(responseCode == 201) {
+			System.out.println("Created the ticket successfully...");
+			System.out.println(responseCode);
+			System.out.println(response.getBody());
+		}
+		else {
+		System.out.println(responseCode);
+		}
 
 	}
 }
-
-
-//https://resham1.atlassian.net/rest/api/2/issue/create
-//https://resham1.atlassian.net/rest/api/2/issue/FP-1

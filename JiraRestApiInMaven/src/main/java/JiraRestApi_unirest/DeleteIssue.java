@@ -14,9 +14,15 @@ public class DeleteIssue {
 				  .asString();
 
 		//System.out.println(response.getBody());
-		System.out.println("Deleted the ticket successfully...");
 		int responseCode = response.getStatus();
-		System.out.println(responseCode);
-
+		
+		if(responseCode == 204) {
+			System.out.println("Deleted the ticket successfully...");
+			System.out.println(responseCode);
+			//System.out.println(response.getBody());
+		}
+		else {
+			System.out.println("Please check the Issue id or key");
+		}	
 	}
 }

@@ -15,9 +15,13 @@ public class GetIssue {
 				  .asJson();
 
 		int responseCode = response.getStatus();
-		System.out.println(responseCode);	
-		System.out.println();
-		System.out.println(response.getBody());
-
+		
+		if(responseCode == 200) {
+			System.out.println(responseCode);
+			System.out.println(response.getBody());
+		}
+		else {
+			System.out.println("Please check the Issue id or key");
+		}
 	}
 }

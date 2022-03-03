@@ -1,6 +1,8 @@
 package JiraRestApi_unirest;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,7 +15,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class JiraApp {
 
-	public static void main(String[] args) throws UnirestException {
+	public static void main(String[] args) throws UnirestException, IOException, GeneralSecurityException {
 
 		JiraApp jiraApp = new JiraApp();
 		//jiraApp.createIssue();
@@ -21,6 +23,9 @@ public class JiraApp {
 		jiraApp.updateIssue();
 		jiraApp.deleteIssue();	
 		jiraApp.addAttachmentToJira();
+		
+		System.out.println("Attaching the file from the google drive to Jira: ");
+		DownloadFileFromGdrive.main(args);
 	}
 		
 	public void createIssue() throws UnirestException {
@@ -266,6 +271,6 @@ public class JiraApp {
 		else {
 			System.out.println("Please check the Issue id or key");
 		}	
-			
+		System.out.println();	
 	}
 }
