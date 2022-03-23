@@ -87,7 +87,7 @@ public class DownloadFileFromGdrive {
         .executeMediaAndDownloadTo(outputstream);   
         
         HttpResponse<JsonNode> response = Unirest.post("https://resham1.atlassian.net/rest/api/2/issue/FP-27/attachments")
-		         .basicAuth("reshamguru123@gmail.com", "eupW4RF1ajQoM8EybdbF5139")
+		         .basicAuth("reshamguru123@gmail.com", "rZ1f4xYBOj4LOekkx5lz82C4")
 		         .header("Accept", "application/json")
 		         .header("X-Atlassian-Token", "no-check")
 		         .field("file", new File(fileId))

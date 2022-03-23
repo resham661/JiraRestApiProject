@@ -96,6 +96,5 @@ public class CreateIssue {
 		else {
 			System.out.println(responseCode);
 		}
-
 	}
 }

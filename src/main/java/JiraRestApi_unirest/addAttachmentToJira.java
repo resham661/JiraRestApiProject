@@ -10,8 +10,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 public class addAttachmentToJira {
 
 	public static void main(String[] args) throws UnirestException {
-		// This code sample uses the  'Unirest' library:
-		 // http://unirest.io/java.html
+		
 		 HttpResponse<JsonNode> response = Unirest.post("https://resham1.atlassian.net/rest/api/2/issue/FP-27/attachments")
 		         .basicAuth("reshamguru123@gmail.com", "eupW4RF1ajQoM8EybdbF5139")
 		         .header("Accept", "application/json")

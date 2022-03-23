@@ -30,7 +30,6 @@ public class UpdateIssue {
 				{
 					labels1.put("remove", "newlabel");
 				}
-		    
 				ArrayNode summary = update.putArray("summary");
 				ObjectNode summary0 = summary.addObject();
 				{
@@ -39,8 +38,6 @@ public class UpdateIssue {
 			}
 			com.fasterxml.jackson.databind.node.ObjectNode fields = dataTable.putObject("fields");
 			{
-		   // fields.put("summary", "Completed orders still displaying in pending");
-
 				ObjectNode description = fields.putObject("description");
 				{
 					description.put("type", "doc");
@@ -87,8 +84,6 @@ public class UpdateIssue {
 		   }
 		});
 
-		// This code sample uses the  'Unirest' library:
-		// http://unirest.io/java.html
 		HttpResponse<JsonNode> response = Unirest.put("https://resham1.atlassian.net/rest/api/3/issue/FP-18")
 		  .basicAuth("reshamguru123@gmail.com", "kVDRMlQotpT6Wm8mu3FP9C46")
 		  .header("Accept", "application/json")
@@ -97,7 +92,6 @@ public class UpdateIssue {
 		  .asJson();
 
 		int responseCode = response.getStatus();
-
 		if(responseCode == 204) {
 			System.out.println("Updated the ticket successfully...");
 			System.out.println(responseCode);

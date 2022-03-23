@@ -60,6 +60,5 @@
 		<artifactId>guava</artifactId>
 		<version>23.6-android</version>
 	</dependency>
-	
   </dependencies>
 </project>
